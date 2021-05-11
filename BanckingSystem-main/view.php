@@ -17,9 +17,22 @@
 
     <title>Banking System</title>
 
+    <style>
+        #loader{
+            background: white url('./img/loading.io.gif') no-repeat center;
+            width: 100%;
+            height: 100vh;
+            position: fixed;
+            z-index: 9999;
+        }
+    </style>
+    
 </head>
+<body onload="load()"> 
 
-<body>
+    <!-- for laoder we add laod function in body ,internal css , html div , script which is below body -->
+    <div id="loader">
+    </div>
 
     <!-- 
         #######################################
@@ -146,7 +159,12 @@
 
     </footer>
 
+    <script>
+       var loader=document.getElementById('loader');
 
-</body>
-
+       function load(){
+           loader.style.display="none";
+       }
+    </script> 
+</body>  
 </html>
