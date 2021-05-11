@@ -34,10 +34,13 @@
     <!-- social media icon of fontawesome -->
     <script src="https://kit.fontawesome.com/680832fd8d.js" crossorigin="anonymous"></script>
     
-    <!-- CDN Link of sweetalert   -->
+    <!-- CDN Link of sweetalert  -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <style>
+        body{
+            background-color: rgb(17 17 17);
+        }
         .header_trans {
             background:  url(./img/mony_heist_transfer_security.jpg);
             height: 88.6vh;
@@ -124,7 +127,7 @@
     
             <div class="follow">
                 <div class="follow__icon">
-                    <a href="https://www.linkedin.com/in/neet-patel-80239b208/" target="_newtab"><i class="fab fa-linkedin-square"></i></a>
+                    <!-- <a href="https://www.linkedin.com/in/neet-patel-80239b208/" target="_newtab"><i class="fab fa-linkedin-square"></i></a> -->
                     
                     <a href="https://www.instagram.com/patel_neet_074/" target="_newtab"><i class="fab fa-instagram-square"></i></a>
                     
@@ -150,8 +153,7 @@
     // output data of each row
         while($row = $result->fetch_assoc()) {
             if($amount > $row["Balance"] or $row["Balance"]-$amount < 100){
-                echo "<script> swal( 'Transaction Denied','Insufficient Balance!','error' ).then(function() { window.location = 'view.php'; });;</script>";
-            
+                echo "<script> swal( 'Transaction Denied','Insufficient Balance!','error' ).then(function() { window.location = 'view.php'; });;</script>"; 
             }
             else{
                 $sql = "UPDATE `customer` SET Balance=(Balance-$amount) WHERE Name='$sender'";
