@@ -4,10 +4,10 @@ Definition : Created a simple dynamic website. Start with creating a dummy data 
 
 Flow: Home Page > View all Customers > Select and View one Customer > Transfer Money > Select customer to transfer to > View all Customers .
 
-Tools : VS Code
-FrontEnd : HTML, CSS, JAVASCRIPT
-BackEnd : PHP
-Database : MySql
+> Tools : VS Code
+> FrontEnd : HTML, CSS, JAVASCRIPT
+> BackEnd : PHP
+> Database : MySql
 
 🔗 Youtube link : 
 https://lnkd.in/eJJKuHf
