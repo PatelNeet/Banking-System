@@ -5,6 +5,21 @@
 
 /* 
 #######################################
+                loader 
+#######################################
+*/
+
+
+#loader{
+    background: white url('./img/loading.io.gif') no-repeat center;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 9999;
+}
+
+/* 
+#######################################
                 navbar 
 #######################################
 */
@@ -12,6 +27,7 @@
 .navigation{
     padding: 0.5rem;
     background-color:black;
+    box-shadow: red 0 0 5px 0;
 }
 
 .nav_container{
@@ -81,12 +97,19 @@ ul{
 
 
 .fix__nav{
-    position: fixed;
+    box-shadow: rgb(243, 10, 10) 0 0 5px 0;
+    position: sticky;
     top: 0;
-    left: 0;
+    /* left: 0; */
     width: 100%;
-    z-index: 1200;
+    z-index: 120;
 }
+/* .fix__nav{
+    box-shadow: red 0 0 5px 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+} */
 
 
 /*
@@ -135,9 +158,9 @@ Navigation Media Query
     
     .nav__item:not(:last-child) {
         margin-right: 0;
+        
     }
 } 
-
 
 /*
 ======================
@@ -202,18 +225,17 @@ Header Media Query
 @media only screen and (max-width: 444px){
 
     header {
-        background:  url(./img/Bank_of_Spain_img.png);
+        background: rgb(17 17 17) url(./img/Bank_of_Spain_img.png);
         height: 60vh;
-        background-size: 100% 60%;
+        background-size: 100% 80%;
         background-repeat: no-repeat;
         background-position: center;
         position: relative;
         color: yellow;
     }
     .main{
-        /* background-color:black; */
-        color:black;
-        padding-top: 58vh;
+        color: yellow;
+        padding-top: 42vh;
         text-align: center;
         display: flex;
         flex-direction: column;
@@ -225,17 +247,26 @@ Header Media Query
     .text p{
         font-size: 1rem;
     }
+
     
     .btn {
-        margin: 1rem;
+        /* width: 100%; */
+        margin: 2.5rem;
         text-decoration: none;
         font-size: 1rem;
+        display: flex;
+        flex-direction: column;
+        
     }
+    .btn a {
+        margin: 2px;
+    }
+
     .btn a:link,
     .btn a:visited{
-        color:black;
+        color: yellow;
         text-decoration: none;
-        padding: 0.8rem;
+        padding: 1rem;
         background-color:rgb(243, 10, 10);
         border: 2px solid rgb(243, 10, 10);
         transition: color 0.3s ease-in-out;
@@ -243,11 +274,13 @@ Header Media Query
     }
 
     .btn a:hover{
-        padding: 0.8rem;
-        color: black;
+        padding: 1rem;
+        color: yellow;
         background-color:transparent;
         border: 2px solid rgb(243, 10, 10);
     }
+
+    
 
 }
 
@@ -275,6 +308,7 @@ View Header
     margin-top: 11vh;
     font-family:'Trebuchet MS',sans-serif;
     border:0px solid black;
+    /* transform-x:; */
 }
 th{
     padding: 10px 25px;
