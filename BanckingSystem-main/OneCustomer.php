@@ -37,9 +37,13 @@
 
     <title>Banking System</title>
 
+
 </head>
 
-<body>
+<body onload="load()">
+    <!-- for laoder we add laod function in body ,internal css , html div , script which is below body -->
+    <div id="loader">
+    </div>
 
     <!-- 
         #######################################
@@ -147,7 +151,7 @@
                     <input name="amount" type="number" min="100" class="textbox" required>
                     <br><br>
 
-                    <a href="index.html"><button id="transfer" name="transfer" ;>Transfer</button></a>
+                    <a href="#"><button id="transfer" name="transfer" ;>Transfer</button></a>
                 </form>
             </div>
  
@@ -170,7 +174,7 @@
 
             <div class="follow">
                 <div class="follow__icon">
-                    <a href="https://www.linkedin.com/in/neet-patel-80239b208/" target="_newtab"><i class="fab fa-linkedin-square"></i></a>
+                    <!-- <a href="https://www.linkedin.com/in/neet-patel-80239b208/" target="_newtab"><i class="fab fa-linkedin-square"></i></a> -->
                     
                     <a href="https://www.instagram.com/patel_neet_074/" target="_newtab"><i class="fab fa-instagram-square"></i></a>
                     
@@ -184,7 +188,13 @@
 
     </footer>
                         
+    <script>
+       var loader=document.getElementById('loader');
 
+       function load(){
+           loader.style.display="none";
+       }
+    </script> 
     
 
 </body>
