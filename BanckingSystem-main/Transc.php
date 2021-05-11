@@ -17,18 +17,28 @@
 
     <title>Banking System</title>
 
+   
     <style>
-        .header_trans {
-            background:  url(./img/mony_heist_transfer_security.jpg);
-            height: 88.6vh;
-            background-size: cover;
-            background-position: center;
-            position: relative;
+        .fix__nav{
+            box-shadow: red 0 0 5px 0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
         }
-
-        .table td{
+        .pic {
+            background: url('./img/mony_heist_transfer_security.jpg') repeat-y;
+            background-size: 100% 80vh;
+        }
+        .main__grp {
+            margin: 10px 10px 10px 10px;
+            padding: 10px 10px 10px 10px;
+            overflow-x: auto;
+        }
+        table td{
             color:white;
         }
+        
+
         .btn,
         .btn:visited{
             background-color:rgb(243, 10, 10); 
@@ -47,48 +57,8 @@
             border: 2px solid rgb(243, 10, 10);
             color: rgb(243, 10, 10);
         }
-        .print{
-            text-align:center;
-            margin-bottom:10px
-        }
 
         @media only screen and (max-width: 444px){
-
-            .header_trans {
-                margin-top:25px;
-                width: 110%;
-                background:  url(./img/mony_heist_transfer_security.jpg);
-                height: 60vh;
-                background-size: 100% 80%;
-                background-repeat: no-repeat;
-                background-position: center;
-                position: relative;
-                color: yellow;
-            }
-            th{
-                padding: 0px 2px;
-                text-align: center;
-                font-weight: 300;
-                font-size: 15px;
-                color: rgb(243, 10, 10);
-                text-transform: uppercase;   
-            }
-            td{
-                padding: 0;
-                text-align: center;
-                vertical-align:middle;
-                font-weight: bold;
-                font-size: 10px;
-                color: black;
-            }
-            .table{
-                margin-top: 55vh;
-                font-family:'Trebuchet MS',sans-serif;
-                border:0px solid black;
-            }
-            .table td{
-                color:black;
-            }
             .btn,
             .btn:visited {
                 background-color:rgb(243, 10, 10); 
@@ -107,8 +77,9 @@
                 background-color:transparent; 
                 border: 2px solid rgb(243, 10, 10);
                 color: rgb(243, 10, 10);
-            }
+            }   
         }
+
     </style>
 
     
@@ -121,8 +92,10 @@
 
 </head>
 
-<body>
-    
+<body onload="load()">
+    <!-- for laoder we add laod function in body ,internal css , html div , script which is below body -->
+    <div id="loader">
+    </div>
     <!-- 
         #######################################
                     navbar 
@@ -159,73 +132,96 @@
         </div>
     </div>
 
+    
     <!-- 
         #######################################
-                    view Header 
+              new responsive view Header 
         #######################################
     -->
-    <!-- img background set via internal CSS for header_trans -->
-    <div class="header_trans">
-       
-        <div class="main_view">
-            <div class="table">
-                <table>
-                    <tr>
-                        <th>Sender <br>Name</th>
-                        <th>Sender <br>A/c No.</th>
-                        <th>Recipient <br>Name</th>
-                        <th>Recipient <br>A/c No.</th>
-                        <th>Amount</th>
-                        <th>Date <br>& <br>Time</th>
-                    </tr>
-                    <?php
-                        $conn = mysqli_connect("localhost", "root", "", "banksystem");
 
-                        // Check connection
+    <div class="pic">
+        <br><br><br>
 
-                        if ($conn->connect_error) {
-                            die("Connection failed: " . $conn->connect_error);
-                        }
+        <div class="main__pb " align="center">
+            <div>
 
-                        $sql = "SELECT * FROM transactions";
-                        $result = $conn->query($sql);
+                <div class="main__grp">
+                    <div class="table_grp">
+                        <!-- <table border="1" class="table table-hover">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Company</th>
+                                    <th>Contact</th>
+                                    <th>Country</th>
+                                </tr>
+                            </thead>
 
-                        if ($result->num_rows > 0) {
+                            
+                        </table> -->
+                        <table>
+                            <tr>
+                                <th>Sender <br>Name</th>
+                                <th>Sender <br>A/c No.</th>
+                                <th>Recipient <br>Name</th>
+                                <th>Recipient <br>A/c No.</th>
+                                <th>Amount</th>
+                                <th>Date <br>& <br>Time</th>
+                            </tr>
+                            <?php
+                                $conn = mysqli_connect("localhost", "root", "","banksystem");
 
-                            // output data of each row
+                                // Check connection
 
-                            while($row = $result->fetch_assoc()) {
-                                echo "<tr>";
-                                // echo "<form method ='post' action = 'OneCustomer.php'>";
-                                echo "<td>" . $row["s_name"]. "</td><td>" . $row["s_acc_no"] . "</td><td>" . $row["r_name"]. "</td><td>" . $row["r_acc_no"] . "</td><td>" . $row["amount"] . "</td><td>" . $row["date_time"] . "</td>";
-                                echo "</tr>";
-                            }
-                        echo "</table>";
-                        } 
-                        else{
-                            echo "0 results"; 
-                        }
-                        $conn->close();
-                    ?>
+                                if ($conn->connect_error) {
+                                    die("Connection failed: " . $conn->connect_error);
+                                }
+
+                                $sql = "SELECT * FROM transactions";
+                                $result = $conn->query($sql);
+
+                                if ($result->num_rows > 0) {
+
+                                    // output data of each row
+
+                                    while($row = $result->fetch_assoc()) {
+                                        echo "<tr>";
+                                        // echo "<form method ='post' action = 'OneCustomer.php'>";
+                                        echo "<td>" . $row["s_name"]. "</td><td>" . $row["s_acc_no"] . "</td><td>" . $row["r_name"]. "</td><td>" . $row["r_acc_no"] . "</td><td>" . $row["amount"] . "</td><td>" . $row["date_time"] . "</td>";
+                                        echo "</tr>";
+                                    }
+                                echo "</table>";
+                                } 
+                                else{
+                                    echo "0 results"; 
+                                }
+                                $conn->close();
+                            ?>
 
 
-                </table>
-            </div> 
-        </div>
-        
-        <div class="print">
-            <div class="print">
-                <button class="btn" onclick="printnow()">Print Now</button>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
+        <!-- </div> -->
+
+        
+
+        
+        <div class="print" align="center">
+            <button class="btn" onclick="printnow()">Print Now</button>
+        </div> <br>
         
     </div>
+    
+
+
     <!-- 
       =====================================================
         Footer  
       =====================================================
     -->
-    <div class="fix__nav_footer">
+    <!-- <div class="fix__nav_footer"> -->
         <footer id="footer" class="section__footer">
                 <div class="copyright">
                     <p>© 2021 All Rights Reserved NeetPatel</p>
@@ -233,7 +229,7 @@
 
                 <div class="follow">
                     <div class="follow__icon">
-                        <a href="https://www.linkedin.com/in/neet-patel-80239b208/" target="_newtab"><i class="fab fa-linkedin-square"></i></a>
+                        <!-- <a href="https://www.linkedin.com/in/neet-patel-80239b208/" target="_newtab"><i class="fab fa-linkedin-square"></i></a> -->
                         
                         <a href="https://www.instagram.com/patel_neet_074/" target="_newtab"><i class="fab fa-instagram-square"></i></a>
                         
@@ -246,7 +242,15 @@
                 </div>
 
         </footer>
-    </div>
+    <!-- </div> -->
+
+    <script>
+       var loader=document.getElementById('loader');
+
+       function load(){
+           loader.style.display="none";
+       }
+    </script> 
 
 </body>
 </html>
