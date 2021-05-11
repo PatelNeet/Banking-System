@@ -14,3 +14,6 @@ https://lnkd.in/eJJKuHf
 
 🔗 website Link :
 https://lnkd.in/ecqaeQr
+
+🔗 Linkedin Link :
+https://www.linkedin.com/posts/neet-patel-80239b208_banking-system-the-spark-foundation-activity-6797119048367837184-dvHZ
