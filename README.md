@@ -1,4 +1,4 @@
-#Task 1 at TSF 
+
 Web & Mobile Development Tasks - Basic Banking System - Dynamic and Responsive website
 
 Definition : Created a simple dynamic website. Start with creating a dummy data in database for upto 10 customers. Customers table will have basic fields such as name, email, current balance etc. Transfers table will record all transfers happened.
